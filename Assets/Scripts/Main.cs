@@ -34,9 +34,13 @@ public class Main : MonoBehaviour
         _asteroidsController.OnSetPoints += _levelKeeper.AddScore;
 
         _inputController.OnJumpPressed += _shipController.Jump;
+        _inputController.OnFirePressed += Shoot;
 
         _stateController.OnChangeState += StartGame;
         _stateController.OnChangeState += uiController.ChangeWindowState;
+        _stateController.OnChangeState += _shipController.ActivateImmune;
+        _stateController.OnChangeState += _asteroidsController.GameOver;
+
     }
 
     private void Start()
@@ -62,6 +66,7 @@ public class Main : MonoBehaviour
     {
         _shipController.OnShipDie -= SetGameOverData;
         _shipController.OnShipDie -= _stateController.GameOver;
+        _shipController.OnShipDie -= _levelKeeper.RestartLevel;
         _shipController.OnJumpCountChange -= uiController.SetJumpCount;
 
         _levelKeeper.OnLevelEnd -= SetLevelData;
@@ -74,9 +79,11 @@ public class Main : MonoBehaviour
         _asteroidsController.OnSetPoints -= _levelKeeper.AddScore;
 
         _inputController.OnJumpPressed -= _shipController.Jump;
+        _inputController.OnFirePressed -= Shoot;
 
         _stateController.OnChangeState -= StartGame;
         _stateController.OnChangeState -= uiController.ChangeWindowState;
+        _stateController.OnChangeState -= _shipController.ActivateImmune;
     }
 
     private void SetLevelData()
@@ -104,5 +111,10 @@ public class Main : MonoBehaviour
                     _levelKeeper.GetAsteroidsOnLevel,
                     _levelKeeper.GetChildrenOnLevel));
         }
+    }
+
+    private void Shoot()
+    {
+        _shipController.SetBulletPosition(spawner.GetBullet());
     }
 }

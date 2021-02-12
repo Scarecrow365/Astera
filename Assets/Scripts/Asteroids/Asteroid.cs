@@ -6,15 +6,15 @@ using Random = UnityEngine.Random;
 public class Asteroid : MonoBehaviour
 {
     private Rigidbody _rb;
-    private bool _isChild;
-    private int _generationNumber;
     private const int MaxSpeed = 3;
     private Transform _baseTransform;
-    private List<Asteroid> _childrenList;
+    private Collider _collider;
 
-    public bool IsChild => _isChild;
-    public int GenerationNumber => _generationNumber;
-    public List<Asteroid> ChildrenList => _childrenList;
+    public bool IsChild { get; private set; }
+
+    public int GenerationNumber { get; private set; }
+
+    public List<Asteroid> ChildrenList { get; private set; }
 
 
     public event Action<Asteroid> OnBreak;
@@ -23,11 +23,12 @@ public class Asteroid : MonoBehaviour
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
+        _collider = GetComponent<Collider>();
     }
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.collider.CompareTag("Player"))
+        if (other.collider.CompareTag("Bullet"))
         {
             CheckChildren();
             gameObject.SetActive(false);
@@ -38,6 +39,7 @@ public class Asteroid : MonoBehaviour
     {
         OnBreak?.Invoke(this);
         _rb.velocity = Vector3.zero;
+        GenerationNumber = 0;
     }
 
     private void CheckBorder() => transform.CheckBorder();
@@ -49,7 +51,7 @@ public class Asteroid : MonoBehaviour
 
         if (children.Length > 1)
         {
-            _childrenList = new List<Asteroid>(4);
+            ChildrenList = new List<Asteroid>(4);
         }
 
         foreach (var child in children)
@@ -61,7 +63,7 @@ public class Asteroid : MonoBehaviour
 
             child.transform.SetParent(_baseTransform, true);
             SetChildren(child);
-            _childrenList.Add(child);
+            ChildrenList.Add(child);
         }
     }
 
@@ -76,7 +78,7 @@ public class Asteroid : MonoBehaviour
         if (isChild)
         {
             _rb.isKinematic = true;
-            GetComponent<Collider>().enabled = false;
+            _collider.enabled = false;
         }
         else
         {
@@ -85,16 +87,16 @@ public class Asteroid : MonoBehaviour
             _rb.velocity = vector;
             _baseTransform = baseTransform;
         }
-        
-        _generationNumber++;
 
-        transform.localScale = _generationNumber switch
+        GenerationNumber++;
+
+        transform.localScale = GenerationNumber switch
         {
             2 => new Vector3(0.75f, 0.75f, 0.75f),
-            3 => new Vector3(0.5f, 0.5f, 0.75f),
+            3 => new Vector3(0.5f, 0.5f, 0.5f),
             _ => Vector3.one
         };
 
-        _isChild = isChild;
+        IsChild = isChild;
     }
 }

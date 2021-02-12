@@ -63,12 +63,22 @@ public class AsteroidsController : MonoBehaviour
         }
     }
 
+    public void GameOver(State state)
+    {
+        if (state == State.GameOver)
+        {
+            foreach (var asteroid in _asteroids)
+            {
+                asteroid.OnBreak -= ReportDisableAsteroid;
+                asteroid.OnBreak -= RemoveDisableAsteroid;
+            }
+
+            _asteroids.Clear();
+        }
+    }
+
     public void OnDestroy()
     {
-        foreach (var asteroid in _asteroids)
-        {
-            asteroid.OnBreak -= ReportDisableAsteroid;
-            asteroid.OnBreak -= RemoveDisableAsteroid;
-        }
+        GameOver(State.GameOver);
     }
 }

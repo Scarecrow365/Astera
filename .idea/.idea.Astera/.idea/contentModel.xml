@@ -24,6 +24,7 @@
             <e p="PoolConfig.cs" t="Include" />
           </e>
           <e p="Ship" t="Include">
+            <e p="Bullet.cs" t="Include" />
             <e p="Ship.cs" t="Include" />
             <e p="ShipController.cs" t="Include" />
             <e p="ShipData.cs" t="Include" />

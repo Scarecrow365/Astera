@@ -26,6 +26,20 @@ public class ShipController
         _ship.transform.position = Vector3.zero;
     }
 
+    public void SetBulletPosition(GameObject bullet)
+    {
+        _ship.SetBulletPosition(bullet);
+        bullet.GetComponent<Bullet>().Init();
+    }
+
+    public void ActivateImmune(State state)
+    {
+        if (state == State.Game)
+        {
+            _ship.ActivateImmune();
+        }
+    }
+
     public void Jump()
     {
         _ship.Jump();

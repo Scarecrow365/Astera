@@ -107,4 +107,9 @@ public class Spawner : MonoBehaviour
         shipData.SetShip(ref ship, (int) shipBody, (int) shipTower);
         return ship;
     }
+
+    public GameObject GetBullet()
+    {
+       return _pool.SpawnFromPool(PoolObject.Bullet);
+    }
 }

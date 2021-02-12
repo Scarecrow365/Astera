@@ -29,5 +29,6 @@ public enum PoolObject
 {
     AsteroidA,
     AsteroidB,
-    AsteroidC
+    AsteroidC,
+    Bullet
 }

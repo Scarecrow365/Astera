@@ -110,6 +110,7 @@ MonoBehaviour:
   tower: {fileID: 1776946634474564893}
   speed: 4
   jumpCount: 3
+  bulletPrefab: {fileID: -7017303719472982011, guid: 0e9c239fd33d94404b671bc44ab4f6b4, type: 3}
 --- !u!54 &215158474734528047
 Rigidbody:
   m_ObjectHideFlags: 0

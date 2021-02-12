@@ -13,6 +13,7 @@ public class Ship : MonoBehaviour
 
     private Rigidbody _rb;
     private Camera _camera;
+    private bool _immune;
 
     private void Awake()
     {
@@ -46,14 +47,33 @@ public class Ship : MonoBehaviour
         OnShipDie?.Invoke();
         transform.gameObject.SetActive(false);
     }
+    
+    private Vector3 GetMousePos()
+    {
+        var mousePos = _camera.ScreenToWorldPoint(Input.mousePosition);
+        mousePos.z = 0;
+        return mousePos;
+    }
 
-    // private void OnCollisionEnter(Collision other)
-    // {
-    //     if (other.collider.CompareTag("Asteroid"))
-    //     {
-    //         Die();
-    //     }
-    // }
+    private void OnCollisionEnter(Collision other)
+    {
+        if (_immune)
+        {
+            return;
+        }
+        if (other.collider.CompareTag("Asteroid"))
+        {
+            Die();
+        }
+    }
+
+    private void DeactivateImmune() => _immune = false;
+
+    public void ActivateImmune()
+    {
+        _immune = true;
+        Invoke("DeactivateImmune" , 0.2f);
+    }
 
     public void Jump()
     {
@@ -61,16 +81,22 @@ public class Ship : MonoBehaviour
         {
             jumpCount--;
             OnJumpCountChange?.Invoke(jumpCount);
-            _rb.AddForce(Vector2.one * 100, ForceMode.Impulse);
+            var target = GetMousePos();
+            transform.Translate(target);
         }
     }
 
     public void CheckBorder() => transform.CheckBorder();
-    
+
     public void UpdateMousePos()
     {
-        var mousePos = _camera.ScreenToWorldPoint(Input.mousePosition);
-        mousePos.z = 0;
+        var mousePos = GetMousePos();
         tower.LookAt(mousePos, Vector3.back);
+    }
+
+    public void SetBulletPosition(GameObject bullet)
+    {
+        bullet.transform.position = tower.position; 
+        bullet.transform.LookAt(GetMousePos());
     }
 }

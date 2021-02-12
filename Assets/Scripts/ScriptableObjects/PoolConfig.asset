@@ -22,3 +22,6 @@ MonoBehaviour:
   - poolObject: 0
     prefab: {fileID: 1317570492134680, guid: a6d3ccfc58a1f41368479aabb6050561, type: 3}
     size: 12
+  - poolObject: 3
+    prefab: {fileID: 1657914042213664, guid: 0e9c239fd33d94404b671bc44ab4f6b4, type: 3}
+    size: 10
