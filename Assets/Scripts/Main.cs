@@ -1,5 +1,4 @@
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class Main : MonoBehaviour
 {
@@ -15,10 +14,10 @@ public class Main : MonoBehaviour
     private void Awake()
     {
         _shipController = new ShipController();
-        _asteroidsController = gameObject.AddComponent<AsteroidsController>();
+        _inputController = new InputController();
         _levelKeeper = gameObject.AddComponent<LevelKeeper>();
-        _inputController = gameObject.AddComponent<InputController>();
         _stateController = gameObject.AddComponent<StateController>();
+        _asteroidsController = gameObject.AddComponent<AsteroidsController>();
 
         _shipController.OnShipDie += SetGameOverData;
         _shipController.OnShipDie += _stateController.GameOver;
@@ -33,7 +32,6 @@ public class Main : MonoBehaviour
         uiController.OnStartButton += _stateController.StartGame;
 
         _asteroidsController.OnSetPoints += _levelKeeper.AddScore;
-        _asteroidsController.OnRequestChildAsteroid += GetChildAsteroid;
 
         _inputController.OnJumpPressed += _shipController.Jump;
 
@@ -74,21 +72,11 @@ public class Main : MonoBehaviour
         uiController.OnStartButton -= _stateController.StartGame;
 
         _asteroidsController.OnSetPoints -= _levelKeeper.AddScore;
-        _asteroidsController.OnRequestChildAsteroid -= GetChildAsteroid;
 
         _inputController.OnJumpPressed -= _shipController.Jump;
 
         _stateController.OnChangeState -= StartGame;
         _stateController.OnChangeState -= uiController.ChangeWindowState;
-    }
-
-    private void GetChildAsteroid(int asteroidsCount)
-    {
-        for (int i = 0; i < asteroidsCount; i++)
-        {
-            var poolObject = (PoolObject) Random.Range(0, (int) PoolObject.AsteroidC);
-            _asteroidsController.SetNewAsteroid(spawner.GetAsteroid(poolObject));
-        }
     }
 
     private void SetLevelData()
@@ -112,7 +100,7 @@ public class Main : MonoBehaviour
         {
             _shipController.ResetPosition();
             _asteroidsController.Init(
-                spawner.GetStartAsteroidsPack(
+                spawner.InitAndGetListAsteroids(
                     _levelKeeper.GetAsteroidsOnLevel,
                     _levelKeeper.GetChildrenOnLevel));
         }

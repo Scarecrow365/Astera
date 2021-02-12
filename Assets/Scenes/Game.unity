@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 594518d2a5c98d942a0efebba2de8c6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _statisticText: {fileID: 1185709552}
+  statisticText: {fileID: 1330682614}
 --- !u!1 &64431882
 GameObject:
   m_ObjectHideFlags: 0
@@ -570,8 +570,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 941c37409df6b284a92386fef6bf7390, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _levelText: {fileID: 1050263902}
-  _levelInfoText: {fileID: 201419327}
+  levelText: {fileID: 1050263902}
+  levelInfoText: {fileID: 201419327}
 --- !u!1 &376613623
 GameObject:
   m_ObjectHideFlags: 0
@@ -1670,8 +1670,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd873a9391d9b87449e9f21acbc6e1e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpCountText: {fileID: 64431884}
   scoreText: {fileID: 2063085983}
+  jumpCountText: {fileID: 64431884}
 --- !u!1 &1185709550
 GameObject:
   m_ObjectHideFlags: 0
@@ -2341,9 +2341,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1906641303}
   - component: {fileID: 1906641302}
-  - component: {fileID: 1906641301}
   - component: {fileID: 1906641304}
-  - component: {fileID: 1906641305}
   m_Layer: 0
   m_Name: '[MAIN]'
   m_TagString: Untagged
@@ -2351,18 +2349,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1906641301
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1906641300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a313b17c0e18f9940acb1dd488cd5500, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1906641302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2376,9 +2362,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawner: {fileID: 694903207}
-  inputController: {fileID: 1906641301}
   uiController: {fileID: 1906641304}
-  stateController: {fileID: 1906641305}
 --- !u!4 &1906641303
 Transform:
   m_ObjectHideFlags: 0
@@ -2406,21 +2390,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainMenuWindow: {fileID: 1201338961}
-  levelInfoWindow: {fileID: 350637140}
   mainDataWindow: {fileID: 1052178559}
   gameOverWindow: {fileID: 34636424}
---- !u!114 &1906641305
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1906641300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ab1514b004e14d44918ef2eea98fca7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  levelInfoWindow: {fileID: 350637140}
 --- !u!1 &1963247675
 GameObject:
   m_ObjectHideFlags: 0

@@ -38,41 +38,68 @@ public class Spawner : MonoBehaviour
         }
     }
 
-    public List<Asteroid> GetStartAsteroidsPack(int countAsteroids, int childrenAsteroidCount)
+    public List<Asteroid> InitAndGetListAsteroids(int countAsteroids, int childrenAsteroidCount)
     {
         var childrenCount = childrenAsteroidCount;
         var list = new List<Asteroid>();
+
         for (int i = 0; i < countAsteroids; i++)
         {
-            var poolObject = (PoolObject) Random.Range(0, (int) PoolObject.AsteroidC);
-            var asteroid = GetAsteroid(poolObject);
-
+            var asteroid = GetAsteroid();
             asteroid.transform.SetRandomPosition(_xBorder, _yBorder);
             asteroid.transform.rotation = Quaternion.identity;
-
-            if (childrenCount > 0)
-            {
-                var childrenInAsteroid = Random.Range(1, 2);
-
-                if (childrenInAsteroid > childrenCount)
-                    childrenInAsteroid = childrenCount;
-
-                childrenCount -= childrenInAsteroid;
-
-                asteroid.Init(childrenInAsteroid, false);
-            }
-            else
-            {
-                asteroid.Init(0, false);
-            }
-
+            asteroid.Init(false, transform);
             list.Add(asteroid);
         }
+
+        CheckOnSetChildren(list, childrenCount);
 
         return list;
     }
 
-    public Asteroid GetAsteroid(PoolObject asteroid) => _pool.SpawnFromPool(asteroid).GetComponent<Asteroid>();
+    private Asteroid GetAsteroid() => GetAsteroidFromPool(GetRandomAsteroidType());
+    private PoolObject GetRandomAsteroidType() => (PoolObject) Random.Range(0, (int) PoolObject.AsteroidC);
+    private Asteroid GetAsteroidFromPool(PoolObject asteroid) => _pool.SpawnFromPool(asteroid).GetComponent<Asteroid>();
+    
+    private void CheckOnSetChildren(List<Asteroid> list, int childrenCount)
+    {
+        foreach (var parentAsteroid in list)
+        {
+            if (childrenCount < 1)
+            {
+                break;
+            }
+
+            if (childrenCount > 0 && childrenCount < 3)
+            {
+                SetChildrenInAsteroid(parentAsteroid);
+                childrenCount--;
+            }
+            else if (childrenCount > 2 && childrenCount < 5)
+            {
+                var parent = SetChildrenInAsteroid(parentAsteroid);
+                SetChildrenInAsteroid(parent);
+                childrenCount -= 2;
+            }
+            else
+            {
+                var parent = SetChildrenInAsteroid(parentAsteroid);
+                SetChildrenInAsteroid(parent);
+                SetChildrenInAsteroid(parent);
+                childrenCount -= 3;
+            }
+        }
+    }
+
+    private Asteroid SetChildrenInAsteroid(Asteroid asteroid)
+    {
+        var asteroidChildren = GetAsteroid();
+        asteroidChildren.transform.SetParent(asteroid.transform);
+        asteroidChildren.transform.position = asteroid.transform.position;
+        asteroidChildren.transform.rotation = Random.rotation;
+        asteroidChildren.Init(true, transform);
+        return asteroidChildren;
+    }
 
     public GameObject GetShip(ShipBody shipBody, ShipTower shipTower)
     {

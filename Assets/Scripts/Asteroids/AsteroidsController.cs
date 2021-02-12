@@ -2,15 +2,12 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AsteroidsController : MonoBehaviour, IDisposable
+public class AsteroidsController : MonoBehaviour
 {
     private const int ScoreForParent = 100;
-    private const int ScoreForChild = 50;
-    [SerializeField]private Transform _lastDisableAsteroidPos;
-    [SerializeField]private List<Asteroid> _asteroids;
+    private List<Asteroid> _asteroids;
 
     public event Action<int> OnSetPoints;
-    public event Action<int> OnRequestChildAsteroid;
 
     public void Init(List<Asteroid> newAsteroids)
     {
@@ -24,32 +21,29 @@ public class AsteroidsController : MonoBehaviour, IDisposable
 
     public void UpdateBehaviour()
     {
-        if (_asteroids.Count > 0)
+        if (_asteroids.Count <= 0) return;
+
+        foreach (var asteroid in _asteroids)
         {
-            foreach (var asteroid in _asteroids)
+            if (!asteroid.IsChild)
             {
                 asteroid.UpdateBehavior();
             }
         }
     }
 
-    public void SetNewAsteroid(Asteroid newAsteroid)
-    {
-        _asteroids.Add(newAsteroid);
-        newAsteroid.transform.position = _lastDisableAsteroidPos.position;
-        _lastDisableAsteroidPos = null;
-        newAsteroid.Init(0,true);
-        newAsteroid.OnBreak += RemoveDisableAsteroid;
-        newAsteroid.OnBreak += ReportDisableAsteroid;
-    }
-
     private void ReportDisableAsteroid(Asteroid asteroid)
     {
-        OnSetPoints?.Invoke(asteroid.IsChild ? ScoreForChild : ScoreForParent);
+        OnSetPoints?.Invoke(ScoreForParent / asteroid.GenerationNumber);
 
-        if (asteroid.ChildrenCount > 0)
+        if (asteroid.ChildrenList != null)
         {
-            OnRequestChildAsteroid?.Invoke(asteroid.ChildrenCount);
+            foreach (var child in asteroid.ChildrenList)
+            {
+                _asteroids.Add(child);
+                child.OnBreak += RemoveDisableAsteroid;
+                child.OnBreak += ReportDisableAsteroid;
+            }
         }
 
         asteroid.OnBreak -= ReportDisableAsteroid;
@@ -64,13 +58,12 @@ public class AsteroidsController : MonoBehaviour, IDisposable
             {
                 obj.OnBreak -= RemoveDisableAsteroid;
                 obj.OnBreak -= ReportDisableAsteroid;
-                _lastDisableAsteroidPos = asteroid.transform;
                 _asteroids.Remove(obj);
             }
         }
     }
 
-    public void Dispose()
+    public void OnDestroy()
     {
         foreach (var asteroid in _asteroids)
         {

@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 public class LevelKeeper : MonoBehaviour
 {
     private int _allAsteroidsOnLevel;
-    private const int MaxCountOnLevel = 6;
-    private const int SpawnChildrenAfterLevel = 0;
+    private const int MaxCountOnLevel = 8;
+    private const int SpawnChildrenAfterLevel = 3;
     public int GetAsteroidsOnLevel { get; private set; }
     public int GetChildrenOnLevel { get; private set; }
     public int GetCurrentScore { get; private set; }

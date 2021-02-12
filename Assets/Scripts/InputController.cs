@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class InputController : MonoBehaviour
+public class InputController
 {
     public event Action OnJumpPressed;
     public event Action OnFirePressed;
