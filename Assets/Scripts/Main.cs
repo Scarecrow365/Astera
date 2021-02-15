@@ -9,15 +9,20 @@ public class Main : MonoBehaviour
     private ShipController _shipController;
     private InputController _inputController;
     private StateController _stateController;
+    private AnalyticsController _analyticsController;
     private AsteroidsController _asteroidsController;
 
     private void Awake()
     {
         _shipController = new ShipController();
         _inputController = new InputController();
+        _analyticsController = new AnalyticsController();
         _levelKeeper = gameObject.AddComponent<LevelKeeper>();
         _stateController = gameObject.AddComponent<StateController>();
         _asteroidsController = gameObject.AddComponent<AsteroidsController>();
+        
+        _analyticsController.OnLaunchGame();
+        _levelKeeper.UpdateDataFromServer();
 
         _shipController.OnShipDie += SetGameOverData;
         _shipController.OnShipDie += _stateController.GameOver;
@@ -30,8 +35,9 @@ public class Main : MonoBehaviour
 
         uiController.OnStartButton += SetLevelData;
         uiController.OnStartButton += _stateController.StartGame;
+        uiController.OnStartButton += _analyticsController.OnPlayerStartGame;
 
-        _asteroidsController.OnSetPoints += _levelKeeper.AddScore;
+        _asteroidsController.OnGenerationAsteroids += _levelKeeper.AddScore;
 
         _inputController.OnJumpPressed += _shipController.Jump;
         _inputController.OnFirePressed += Shoot;
@@ -40,13 +46,13 @@ public class Main : MonoBehaviour
         _stateController.OnChangeState += uiController.ChangeWindowState;
         _stateController.OnChangeState += _shipController.ActivateImmune;
         _stateController.OnChangeState += _asteroidsController.GameOver;
-
     }
 
     private void Start()
     {
         spawner.Init();
         _levelKeeper.Init();
+        _asteroidsController.Init();
         _stateController.ChangeState(State.MainMenu);
         _shipController.Init(spawner.GetShip(ShipBody.Standard, ShipTower.Standard));
     }
@@ -75,8 +81,9 @@ public class Main : MonoBehaviour
 
         uiController.OnStartButton -= SetLevelData;
         uiController.OnStartButton -= _stateController.StartGame;
+        uiController.OnStartButton -= _analyticsController.OnPlayerStartGame;
 
-        _asteroidsController.OnSetPoints -= _levelKeeper.AddScore;
+        _asteroidsController.OnGenerationAsteroids -= _levelKeeper.AddScore;
 
         _inputController.OnJumpPressed -= _shipController.Jump;
         _inputController.OnFirePressed -= Shoot;
@@ -84,6 +91,8 @@ public class Main : MonoBehaviour
         _stateController.OnChangeState -= StartGame;
         _stateController.OnChangeState -= uiController.ChangeWindowState;
         _stateController.OnChangeState -= _shipController.ActivateImmune;
+        
+        _analyticsController.OnQuitGame();
     }
 
     private void SetLevelData()
@@ -92,6 +101,8 @@ public class Main : MonoBehaviour
             _levelKeeper.GetCurrentLevel,
             _levelKeeper.GetAsteroidsOnLevel,
             _levelKeeper.GetChildrenOnLevel);
+        
+        _analyticsController.OnPlayerChangedLevel(_levelKeeper.GetCurrentLevel);
     }
 
     private void SetGameOverData()
@@ -106,7 +117,7 @@ public class Main : MonoBehaviour
         if (state == State.Game)
         {
             _shipController.ResetPosition();
-            _asteroidsController.Init(
+            _asteroidsController.StartGame(
                 spawner.InitAndGetListAsteroids(
                     _levelKeeper.GetAsteroidsOnLevel,
                     _levelKeeper.GetChildrenOnLevel));

@@ -6,19 +6,16 @@ using Random = UnityEngine.Random;
 public class Asteroid : MonoBehaviour
 {
     private Rigidbody _rb;
-    private const int MaxSpeed = 3;
-    private Transform _baseTransform;
     private Collider _collider;
+    private const int MinSpeed = 5;
+    private const int MaxSpeed = 10;
+    private Transform _baseTransform;
 
     public bool IsChild { get; private set; }
-
     public int GenerationNumber { get; private set; }
-
     public List<Asteroid> ChildrenList { get; private set; }
 
-
     public event Action<Asteroid> OnBreak;
-
 
     private void Awake()
     {
@@ -82,7 +79,24 @@ public class Asteroid : MonoBehaviour
         }
         else
         {
-            var vector = new Vector2(Random.Range(-MaxSpeed, MaxSpeed), Random.Range(-MaxSpeed, MaxSpeed));
+            var vectorX = Random.Range(MinSpeed, MaxSpeed);
+            var vectorY = Random.Range(MinSpeed, MaxSpeed);
+
+            var vector = new Vector2((vectorX / transform.localScale.x), (vectorY / transform.localScale.y));
+
+            var directionX = Random.Range(0, 1);
+            var directionY = Random.Range(0, 1);
+
+            if (directionX == 0)
+            {
+                vector.x *= -1;
+            }
+
+            if (directionY == 0)
+            {
+                vector.y *= -1;
+            }
+
             _rb.isKinematic = false;
             _rb.velocity = vector;
             _baseTransform = baseTransform;

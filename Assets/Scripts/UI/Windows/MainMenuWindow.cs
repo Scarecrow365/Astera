@@ -9,7 +9,7 @@ public class MainMenuWindow : MonoBehaviour, IWindow
 
     public event Action OnStartButton;
     public event Action OnDeleteSaveButton;
-    
+
     private void Awake()
     {
         startButton.onClick.AddListener(() => OnStartButton?.Invoke());

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="3" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="175a84c7-e738-498a-bb47-0e4eec81142c" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,24 +15,36 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/82EC470C-9131-4935-8AD0-C83AD628910C/40/bb152c50/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../TestAnalyticsAndRemoteSettings/Assets/AnalyticsTest.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Analytics/AnalyticsController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9577AC7A-62EF-4317-9789-031239BA8798/2a/0d72e35c/List`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2F18D315-B08A-44C0-B9D3-8149E26FA64A/eb/be69d870/LevelComplete.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ship/Bullet.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9577AC7A-62EF-4317-9789-031239BA8798/f3/90147b4f/Delegate.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/82EC470C-9131-4935-8AD0-C83AD628910C/f7/978fe593/Vector3.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Assets/Scripts/InputController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/LevelKeeper.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enums.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Spawner.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Ship/Bullet.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Ship/ShipController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Asteroids/Asteroid.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Ship/Ship.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Main.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/StateController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Test.cs" />
+        <option value="$PROJECT_DIR$/Assets/Tests/EditMode/PlayerTest.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Tests/EditMode/PlayerTests.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Tests/PlayerTests.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Ship/ShipController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Ship/Ship.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Ship/Bullet.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/Windows/MainMenuWindow.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/UiController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Spawner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Asteroids/AsteroidsController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Asteroids/Asteroid.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Analytics/Analytics.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Main.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/LevelKeeper.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Analytics/AnalyticsController.cs" />
       </list>
     </option>
   </component>
@@ -56,10 +71,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="1140">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="1140" />
+      <option name="pid" />
       <option name="selectedOptions">
         <set />
       </option>
@@ -77,6 +92,12 @@
       <workItem from="1613055145390" duration="22086000" />
       <workItem from="1613115762045" duration="3645000" />
       <workItem from="1613119536921" duration="11870000" />
+      <workItem from="1613295841618" duration="101000" />
+      <workItem from="1613298686227" duration="3950000" />
+      <workItem from="1613326575563" duration="589000" />
+      <workItem from="1613373072886" duration="11088000" />
+      <workItem from="1613384824264" duration="5767000" />
+      <workItem from="1613392166602" duration="1966000" />
     </task>
     <servers />
   </component>
@@ -89,6 +110,10 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="718" y="380" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1" timestamp="1613302386987">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="718" y="380" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1613302386987" />
     <state width="481" height="464" key="DebuggerActiveHint" timestamp="1613078022350">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

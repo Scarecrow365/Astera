@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class AsteroidsController : MonoBehaviour
 {
-    private const int ScoreForParent = 100;
     private List<Asteroid> _asteroids;
 
-    public event Action<int> OnSetPoints;
+    public event Action<int> OnGenerationAsteroids;
 
-    public void Init(List<Asteroid> newAsteroids)
+    public void Init()
+    {
+        _asteroids = new List<Asteroid>();
+    }
+
+    public void StartGame(List<Asteroid> newAsteroids)
     {
         _asteroids = newAsteroids;
         foreach (var asteroid in _asteroids)
@@ -34,7 +38,7 @@ public class AsteroidsController : MonoBehaviour
 
     private void ReportDisableAsteroid(Asteroid asteroid)
     {
-        OnSetPoints?.Invoke(ScoreForParent / asteroid.GenerationNumber);
+        OnGenerationAsteroids?.Invoke(asteroid.GenerationNumber);
 
         if (asteroid.ChildrenList != null)
         {

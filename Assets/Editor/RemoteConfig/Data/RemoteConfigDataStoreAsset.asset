@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 469c24fdb3bd6431b92cc1465bd9166b, type: 3}
+  m_Name: RemoteConfigDataStoreAsset
+  m_EditorClassIdentifier: 
+  _rsKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"19887c79-1cd8-4171-a0b3-bcbc1924bc4d\"\r\n   
+    },\r\n    \"rs\": {\r\n      \"key\": \"CreateChildrenAsteroidsAfterLevel\",\r\n     
+    \"type\": \"int\",\r\n      \"value\": 4\r\n    }\r\n  },\r\n  {\r\n    \"metadata\":
+    {\r\n      \"entityId\": \"7ad39f15-7a2c-451a-bc58-5a04f7c14736\"\r\n    },\r\n   
+    \"rs\": {\r\n      \"key\": \"AsteroidsCountOnStart\",\r\n      \"type\": \"int\",\r\n     
+    \"value\": 3\r\n    }\r\n  }\r\n]"
+  _rsLastCachedKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"19887c79-1cd8-4171-a0b3-bcbc1924bc4d\"\r\n   
+    },\r\n    \"rs\": {\r\n      \"key\": \"CreateChildrenAsteroidsAfterLevel\",\r\n     
+    \"type\": \"int\",\r\n      \"value\": 4\r\n    }\r\n  },\r\n  {\r\n    \"metadata\":
+    {\r\n      \"entityId\": \"7ad39f15-7a2c-451a-bc58-5a04f7c14736\"\r\n    },\r\n   
+    \"rs\": {\r\n      \"key\": \"AsteroidsCountOnStart\",\r\n      \"type\": \"int\",\r\n     
+    \"value\": 3\r\n    }\r\n  }\r\n]"
+  _environments: "[\r\n  {\r\n    \"projectId\": \"bd4f7836-347b-4f85-8c8b-b6a72091f4db\",\r\n   
+    \"name\": \"Release\",\r\n    \"id\": \"cd8dbc45-7d8d-4a68-bd07-ae1691ceff8b\",\r\n   
+    \"createdAt\": \"2021-02-15T11:35:02Z\",\r\n    \"updatedAt\": \"2021-02-15T11:35:02Z\",\r\n   
+    \"isDefault\": true\r\n  }\r\n]"
+  _rulesList: '[]'
+  _lastCachedRulesList: '[]'

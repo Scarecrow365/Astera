@@ -29,9 +29,24 @@ public class UiController : MonoBehaviour
 
     public void ChangeWindowState(State state)
     {
-        mainMenuWindow.ChangeState(state);
-        levelInfoWindow.ChangeState(state);
-        mainDataWindow.ChangeState(state);
-        gameOverWindow.ChangeState(state);
+        if (mainMenuWindow != null)
+        {
+            mainMenuWindow.ChangeState(state);
+        }
+
+        if (levelInfoWindow != null)
+        {
+            levelInfoWindow.ChangeState(state);
+        }
+
+        if (mainDataWindow != null)
+        {
+            mainDataWindow.ChangeState(state);
+        }
+
+        if (gameOverWindow != null)
+        {
+            gameOverWindow.ChangeState(state);
+        }
     }
 }

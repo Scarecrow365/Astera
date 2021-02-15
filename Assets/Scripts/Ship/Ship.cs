@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
@@ -81,8 +82,7 @@ public class Ship : MonoBehaviour
         {
             jumpCount--;
             OnJumpCountChange?.Invoke(jumpCount);
-            var target = GetMousePos();
-            transform.Translate(target);
+            StartCoroutine(SpeedUp());
         }
     }
 
@@ -98,5 +98,13 @@ public class Ship : MonoBehaviour
     {
         bullet.transform.position = tower.position; 
         bullet.transform.LookAt(GetMousePos());
+    }
+
+    private IEnumerator SpeedUp()
+    {
+        var curSpeed = speed;
+        speed = 20;
+        yield return new WaitForSeconds(0.15f);
+        speed = curSpeed;
     }
 }

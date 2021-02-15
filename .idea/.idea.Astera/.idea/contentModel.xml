@@ -5,13 +5,18 @@
     <e p="C:\Users\Scarecrow\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_Astera.-1859673987.00" t="ExcludeRecursive" />
     <e p="D:\Github\Astera" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor-firstpass.csproj" t="IncludeRecursive" />
-      <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
-      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
+          <e p="Analytics" t="Include">
+            <e p="AnalyticsController.cs" t="Include" />
+          </e>
           <e p="Asteroids" t="Include">
             <e p="Asteroid.cs" t="Include" />
             <e p="AsteroidsController.cs" t="Include" />
+          </e>
+          <e p="EditTests" t="Include">
+            <e p="EditTests.asmdef" t="Include" />
+            <e p="PlayerTest.cs" t="Include" />
           </e>
           <e p="Enums.cs" t="Include" />
           <e p="Extension.cs" t="Include" />
@@ -31,6 +36,7 @@
           </e>
           <e p="Spawner.cs" t="Include" />
           <e p="StateController.cs" t="Include" />
+          <e p="Test.asmdef" t="Include" />
           <e p="UI" t="Include">
             <e p="IWindow.cs" t="Include" />
             <e p="UiController.cs" t="Include" />
@@ -44,6 +50,7 @@
         </e>
         <e p="Standard Assets" t="Include">
           <e p="CrossPlatformInput" t="Include">
+            <e p="CrossPlatformInput.asmdef" t="Include" />
             <e p="CrossPlatformInputGuidelines.txt" t="Include" />
             <e p="Scripts" t="Include">
               <e p="AxisTouchButton.cs" t="Include" />
@@ -66,48 +73,15 @@
               <e p="CrossPlatformInputInitialize.cs" t="Include" />
             </e>
           </e>
-          <e p="Fonts" t="Include">
-            <e p="OpenSans" t="Include">
-              <e p="License!.txt" t="Include" />
-            </e>
-          </e>
-        </e>
-        <e p="TextMesh Pro" t="Include">
-          <e p="Fonts" t="Include">
-            <e p="LiberationSans - OFL.txt" t="Include" />
-          </e>
-          <e p="Resources" t="Include">
-            <e p="LineBreaking Following Characters.txt" t="Include" />
-            <e p="LineBreaking Leading Characters.txt" t="Include" />
-          </e>
-          <e p="Shaders" t="Include">
-            <e p="TMP_Bitmap-Custom-Atlas.shader" t="Include" />
-            <e p="TMP_Bitmap-Mobile.shader" t="Include" />
-            <e p="TMP_Bitmap.shader" t="Include" />
-            <e p="TMP_SDF Overlay.shader" t="Include" />
-            <e p="TMP_SDF SSD.shader" t="Include" />
-            <e p="TMP_SDF-Mobile Masking.shader" t="Include" />
-            <e p="TMP_SDF-Mobile Overlay.shader" t="Include" />
-            <e p="TMP_SDF-Mobile SSD.shader" t="Include" />
-            <e p="TMP_SDF-Mobile.shader" t="Include" />
-            <e p="TMP_SDF-Surface-Mobile.shader" t="Include" />
-            <e p="TMP_SDF-Surface.shader" t="Include" />
-            <e p="TMP_SDF.shader" t="Include" />
-            <e p="TMP_Sprite.shader" t="Include" />
-            <e p="TMPro.cginc" t="Include" />
-            <e p="TMPro_Mobile.cginc" t="Include" />
-            <e p="TMPro_Properties.cginc" t="Include" />
-            <e p="TMPro_Surface.cginc" t="Include" />
-          </e>
-          <e p="Sprites" t="Include">
-            <e p="EmojiOne Attribution.txt" t="Include" />
-          </e>
         </e>
       </e>
       <e p="Astera.sln" t="IncludeFlat" />
+      <e p="CrossPlatformInput.csproj" t="IncludeRecursive" />
+      <e p="EditTests.csproj" t="IncludeRecursive" />
       <e p="obj" t="ExcludeRecursive" />
       <e p="Packages" t="ExcludeRecursive" />
       <e p="Temp\Bin" t="ExcludeRecursive" />
+      <e p="Test.csproj" t="IncludeRecursive" />
     </e>
   </component>
 </project>

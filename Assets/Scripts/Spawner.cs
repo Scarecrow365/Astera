@@ -47,7 +47,7 @@ public class Spawner : MonoBehaviour
         {
             var asteroid = GetAsteroid();
             asteroid.transform.SetRandomPosition(_xBorder, _yBorder);
-            asteroid.transform.rotation = Quaternion.identity;
+            asteroid.transform.rotation = Random.rotation;
             asteroid.Init(false, transform);
             list.Add(asteroid);
         }

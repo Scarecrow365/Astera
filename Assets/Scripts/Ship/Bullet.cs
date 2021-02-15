@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -10,6 +11,11 @@ public class Bullet : MonoBehaviour
     {
         rb.velocity = transform.forward * speed;
         Invoke("Deactivate", lifeTime);
+    }
+
+    private void Update()
+    {
+        transform.CheckBorder();
     }
 
     private void OnCollisionEnter(Collision other)
