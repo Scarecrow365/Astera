@@ -5,10 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class LevelKeeper : MonoBehaviour
 {
+    private const string CountAsteroidsOnStartRemoteEvent = "ASTEROIDS_COUNT_ON_START";
+    private const string CountChildrenAsteroidsRemoteEvent = "CHILDREN_ASTEROIDS_AFTER_LEVEL";
+    
     private int _allAsteroidsOnLevel;
     private const int MaxCountOnLevel = 8;
     private const float RestartDelay = 3f;
-    private const int SpawnChildrenAfterLevel = 3;
+    private int _spawnChildrenAfterLevel = 3;
     private int _parentScore;
     private int _childrenScore;
     private int _grandChildrenScore;
@@ -23,9 +26,12 @@ public class LevelKeeper : MonoBehaviour
 
     public void Init()
     {
+        var countAsteroids = RemoteSettings.GetInt(CountAsteroidsOnStartRemoteEvent, 1);
+        _spawnChildrenAfterLevel = RemoteSettings.GetInt(CountChildrenAsteroidsRemoteEvent, _spawnChildrenAfterLevel);
+        
         GetCurrentLevel = 1;
         GetCurrentScore = 0;
-        GetAsteroidsOnLevel = 2;
+        GetAsteroidsOnLevel = countAsteroids;
         GetChildrenOnLevel = 0;
         _allAsteroidsOnLevel = GetAsteroidsOnLevel + GetChildrenOnLevel;
     }
@@ -51,7 +57,7 @@ public class LevelKeeper : MonoBehaviour
     {
         GetCurrentLevel++;
         GetAsteroidsOnLevel++;
-        GetChildrenOnLevel = GetCurrentLevel - SpawnChildrenAfterLevel;
+        GetChildrenOnLevel = GetCurrentLevel - _spawnChildrenAfterLevel;
 
         if (GetChildrenOnLevel < 1)
             GetChildrenOnLevel = 0;

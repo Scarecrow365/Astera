@@ -8,7 +8,7 @@ public class AsteroidsController : MonoBehaviour
 
     public event Action<int> OnGenerationAsteroids;
 
-    public void Init()
+    public void Awake()
     {
         _asteroids = new List<Asteroid>();
     }

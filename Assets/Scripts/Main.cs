@@ -52,7 +52,6 @@ public class Main : MonoBehaviour
     {
         spawner.Init();
         _levelKeeper.Init();
-        _asteroidsController.Init();
         _stateController.ChangeState(State.MainMenu);
         _shipController.Init(spawner.GetShip(ShipBody.Standard, ShipTower.Standard));
     }

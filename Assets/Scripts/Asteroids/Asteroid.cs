@@ -79,26 +79,11 @@ public class Asteroid : MonoBehaviour
         }
         else
         {
-            var vectorX = Random.Range(MinSpeed, MaxSpeed);
-            var vectorY = Random.Range(MinSpeed, MaxSpeed);
-
-            var vector = new Vector2((vectorX / transform.localScale.x), (vectorY / transform.localScale.y));
-
-            var directionX = Random.Range(0, 1);
-            var directionY = Random.Range(0, 1);
-
-            if (directionX == 0)
-            {
-                vector.x *= -1;
-            }
-
-            if (directionY == 0)
-            {
-                vector.y *= -1;
-            }
+            var speed = Random.Range(MinSpeed, MaxSpeed);
+            var direction = Random.insideUnitCircle.normalized * speed; 
 
             _rb.isKinematic = false;
-            _rb.velocity = vector;
+            _rb.velocity = direction / transform.localScale;
             _baseTransform = baseTransform;
         }
 

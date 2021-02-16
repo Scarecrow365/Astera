@@ -18,10 +18,12 @@
     <setting file="file://$PROJECT_DIR$/../TestAnalyticsAndRemoteSettings/Assets/AnalyticsTest.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Analytics/AnalyticsController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9577AC7A-62EF-4317-9789-031239BA8798/2a/0d72e35c/List`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/335424E7-4F7C-4FE7-B178-9A4A40B9DE31/75/a00cf448/RemoteSettings.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2F18D315-B08A-44C0-B9D3-8149E26FA64A/eb/be69d870/LevelComplete.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ship/Bullet.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9577AC7A-62EF-4317-9789-031239BA8798/f3/90147b4f/Delegate.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/82EC470C-9131-4935-8AD0-C83AD628910C/f7/978fe593/Vector3.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../Projects/EternalWar/project-tower-defence/Assets/Scripts/MultiSceneTransfer/DataMapSettings.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -39,12 +41,12 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Windows/MainMenuWindow.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/UiController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Spawner.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Asteroids/AsteroidsController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Asteroids/Asteroid.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Analytics/Analytics.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Main.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/LevelKeeper.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Analytics/AnalyticsController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/LevelKeeper.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Asteroids/Asteroid.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Main.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Asteroids/AsteroidsController.cs" />
       </list>
     </option>
   </component>
@@ -97,7 +99,8 @@
       <workItem from="1613326575563" duration="589000" />
       <workItem from="1613373072886" duration="11088000" />
       <workItem from="1613384824264" duration="5767000" />
-      <workItem from="1613392166602" duration="1966000" />
+      <workItem from="1613392166602" duration="4515000" />
+      <workItem from="1613481075899" duration="6431000" />
     </task>
     <servers />
   </component>

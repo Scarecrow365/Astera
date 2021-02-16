@@ -20,7 +20,7 @@ public class AnalyticsController
     
     public void OnPlayerChangedLevel(int levelNumber)
     {
-        Analytics.CustomEvent("Launch_Game", new Dictionary<string, object>()
+        Analytics.CustomEvent("Change_Level", new Dictionary<string, object>()
         {
             {"Level", levelNumber}
         });

@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 469c24fdb3bd6431b92cc1465bd9166b, type: 3}
   m_Name: RemoteConfigDataStoreAsset
   m_EditorClassIdentifier: 
-  _rsKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"19887c79-1cd8-4171-a0b3-bcbc1924bc4d\"\r\n   
+  _rsKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"ec9e086c-30e5-46cb-8228-8222f3d4b8da\"\r\n   
     },\r\n    \"rs\": {\r\n      \"key\": \"CreateChildrenAsteroidsAfterLevel\",\r\n     
-    \"type\": \"int\",\r\n      \"value\": 4\r\n    }\r\n  },\r\n  {\r\n    \"metadata\":
-    {\r\n      \"entityId\": \"7ad39f15-7a2c-451a-bc58-5a04f7c14736\"\r\n    },\r\n   
+    \"type\": \"int\",\r\n      \"value\": 3\r\n    }\r\n  },\r\n  {\r\n    \"metadata\":
+    {\r\n      \"entityId\": \"ef175045-cbd1-48f3-b38c-bf48acc9f47e\"\r\n    },\r\n   
     \"rs\": {\r\n      \"key\": \"AsteroidsCountOnStart\",\r\n      \"type\": \"int\",\r\n     
     \"value\": 3\r\n    }\r\n  }\r\n]"
-  _rsLastCachedKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"19887c79-1cd8-4171-a0b3-bcbc1924bc4d\"\r\n   
+  _rsLastCachedKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"ec9e086c-30e5-46cb-8228-8222f3d4b8da\"\r\n   
     },\r\n    \"rs\": {\r\n      \"key\": \"CreateChildrenAsteroidsAfterLevel\",\r\n     
-    \"type\": \"int\",\r\n      \"value\": 4\r\n    }\r\n  },\r\n  {\r\n    \"metadata\":
-    {\r\n      \"entityId\": \"7ad39f15-7a2c-451a-bc58-5a04f7c14736\"\r\n    },\r\n   
+    \"type\": \"int\",\r\n      \"value\": 3\r\n    }\r\n  },\r\n  {\r\n    \"metadata\":
+    {\r\n      \"entityId\": \"ef175045-cbd1-48f3-b38c-bf48acc9f47e\"\r\n    },\r\n   
     \"rs\": {\r\n      \"key\": \"AsteroidsCountOnStart\",\r\n      \"type\": \"int\",\r\n     
     \"value\": 3\r\n    }\r\n  }\r\n]"
   _environments: "[\r\n  {\r\n    \"projectId\": \"bd4f7836-347b-4f85-8c8b-b6a72091f4db\",\r\n   
